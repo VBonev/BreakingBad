@@ -33,21 +33,17 @@ class CharactersOverviewViewModel : ViewModel() {
         if (seasonNumber == 0) {
             mutableCharactersResult.value = originalList
         } else {
-            val newList = originalList.filter { character ->
+            mutableCharactersResult.value = originalList.filter { character ->
                 character.appearance?.contains(seasonNumber) ?: false
             }
-            mutableCharactersResult.value = newList
         }
     }
 
     fun searchByName(name: String?) {
-        name?.let {
-            if (name.isNotEmpty()) {
-                val newList =
+            if (!name.isNullOrBlank()) {
+                mutableCharactersResult.value =
                     originalList.filter { it.name?.contains(name, ignoreCase = true) == true }
-                mutableCharactersResult.value = newList
             }
-        }
     }
 
 }

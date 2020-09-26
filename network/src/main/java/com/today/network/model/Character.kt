@@ -7,6 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class Character(
     val img: String?,
     val name: String?,
+    val birthday: String?,
     val nickname: String?,
     val occupation: List<String>?,
     val appearance: List<Int>?,

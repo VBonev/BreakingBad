@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center_vertical"
-    android:layout_margin="10dp"
-    android:elevation="10dp"
+    android:layout_margin="@dimen/margin_small"
+    android:elevation="@dimen/margin_small"
     android:orientation="vertical"
     app:cardBackgroundColor="@android:color/black"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="@dimen/card_radius"
     app:cardUseCompatPadding="false">
 
     <ImageView
         android:id="@+id/char_image"
-        android:layout_width="250dp"
-        android:layout_height="300dp"
+        tools:ignore="ContentDescription"
+        android:layout_width="@dimen/item_image_width"
+        android:layout_height="@dimen/item_image_heigth"
         android:layout_gravity="center"
         android:scaleType="fitXY" />
 
@@ -23,10 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_big"
         android:textStyle="bold" />
 
     <TextView
@@ -34,8 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginStart="10dp"
-        android:text="Seasons: "
+        android:layout_marginStart="@dimen/margin_small"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="@dimen/text_medium" />
 </androidx.cardview.widget.CardView>
