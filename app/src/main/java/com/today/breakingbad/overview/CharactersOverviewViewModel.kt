@@ -1,5 +1,6 @@
 package com.today.breakingbad.overview
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,9 +11,10 @@ import kotlinx.coroutines.launch
 
 class CharactersOverviewViewModel : ViewModel() {
 
+    @VisibleForTesting
+    var originalList = listOf<Character>()
     private var mutableCharactersResult = MutableLiveData<List<Character>>()
     val charactersList: LiveData<List<Character>> = mutableCharactersResult
-    private var originalList = listOf<Character>()
 
     private var mutableErrorLiveData = MutableLiveData<String>()
     val errorLiveData: LiveData<String> = mutableErrorLiveData
@@ -40,10 +42,10 @@ class CharactersOverviewViewModel : ViewModel() {
     }
 
     fun searchByName(name: String?) {
-            if (!name.isNullOrBlank()) {
-                mutableCharactersResult.value =
-                    originalList.filter { it.name?.contains(name, ignoreCase = true) == true }
-            }
+        if (!name.isNullOrBlank()) {
+            mutableCharactersResult.value =
+                originalList.filter { it.name?.contains(name, ignoreCase = true) == true }
+        }
     }
 
 }

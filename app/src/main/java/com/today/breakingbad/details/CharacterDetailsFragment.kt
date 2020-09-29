@@ -79,7 +79,7 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
             if (text.contains("Unknown", ignoreCase = true)) {
                 ForegroundColorSpan(Color.RED)
             } else {
-                ForegroundColorSpan(Color.BLUE)
+                ForegroundColorSpan(Color.GRAY)
             }
         spannable.setSpan(
             foregroundColorSpan,

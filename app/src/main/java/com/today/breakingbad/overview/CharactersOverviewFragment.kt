@@ -5,12 +5,14 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.snackbar.Snackbar
 import com.today.breakingbad.R
 import kotlinx.android.synthetic.main.fragment_characters_overview.*
+
 
 class CharactersOverviewFragment : Fragment(R.layout.fragment_characters_overview) {
 
@@ -45,7 +47,6 @@ class CharactersOverviewFragment : Fragment(R.layout.fragment_characters_overvie
         for (i in 1..SEASON_COUNT) {
             seasons.add(String.format(getString(R.string.spinner_label), i))
         }
-        toolbar.title = getString(R.string.all_seasons_label)
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, seasons)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
@@ -57,7 +58,6 @@ class CharactersOverviewFragment : Fragment(R.layout.fragment_characters_overvie
                 id: Long
             ) {
                 viewModel.filterBySeason(position)
-                toolbar.title = seasons[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
